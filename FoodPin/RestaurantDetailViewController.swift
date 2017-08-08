@@ -11,11 +11,21 @@ import UIKit
 class RestaurantDetailViewController: UIViewController {
 
     @IBOutlet var restaurantImageView: UIImageView!
-    var restaurantImage = ""
+    @IBOutlet var restaurantName: UILabel!
+    @IBOutlet var restaurantType: UILabel!
+    @IBOutlet var restaurantLocation: UILabel!
+    
+    var restaurant: Restaurant!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        restaurantImageView.image = UIImage(named: restaurantImage)
+        if let restaurant = restaurant{
+            restaurantName.text = restaurant.name
+            restaurantLocation.text = restaurant.location
+            restaurantType.text = restaurant.type
+            restaurantImageView.image = UIImage(named: restaurant.image)
+        }
     }
 
     override func didReceiveMemoryWarning() {
