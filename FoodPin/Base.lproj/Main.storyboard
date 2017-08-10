@@ -252,6 +252,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V4R-M4-Uvp">
                                 <rect key="frame" x="0.0" y="364" width="375" height="303"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" id="mGd-hI-KZh">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="135"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </mapView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="36" id="PH0-9o-5rg" customClass="RestaurantDetailTableViewCell" customModule="FoodPin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="36"/>
@@ -324,13 +328,47 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="mGd-hI-KZh" id="YoM-Fs-dUX"/>
                         <outlet property="restaurantImageView" destination="86m-ip-Ysl" id="bW0-XK-JfD"/>
                         <outlet property="tableView" destination="V4R-M4-Uvp" id="dGl-2t-0fZ"/>
+                        <segue destination="GgO-ET-HP1" kind="show" identifier="showMap" id="S4R-Gt-YCo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3t-8H-u6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1869.5999999999999" y="-791.15442278860576"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="ZU9-JB-3Jy">
+            <objects>
+                <viewController id="GgO-ET-HP1" customClass="MapViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nDf-vo-3Hy"/>
+                        <viewControllerLayoutGuide type="bottom" id="TqT-wx-H84"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FUV-v1-vgC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ri7-IW-eOD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ri7-IW-eOD" secondAttribute="trailing" id="PiC-J9-zia"/>
+                            <constraint firstItem="TqT-wx-H84" firstAttribute="top" secondItem="Ri7-IW-eOD" secondAttribute="bottom" id="cQs-dh-Bqx"/>
+                            <constraint firstItem="Ri7-IW-eOD" firstAttribute="leading" secondItem="FUV-v1-vgC" secondAttribute="leading" id="iVY-lv-3Qd"/>
+                            <constraint firstItem="Ri7-IW-eOD" firstAttribute="top" secondItem="FUV-v1-vgC" secondAttribute="top" id="miy-Bd-iJX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Ri7-IW-eOD" id="BHD-OZ-edI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCt-0S-W2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2544.8000000000002" y="-790.25487256371821"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rjX-41-C7X">
